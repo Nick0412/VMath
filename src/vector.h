@@ -6,15 +6,7 @@
 
 namespace VMath
 {
-    // Forward declaration of Vector class.
     template <typename type = double, std::size_t size = 1>
-    class Vector;
-
-    // Forward declaration of operator* function.
-    template <typename type, std::size_t size>
-    Vector<type, size> operator*(double scalar, const Vector<type, size>& v);
-
-    template <typename type, std::size_t size>
     class Vector
     {
     private:
@@ -32,12 +24,10 @@ namespace VMath
         double magnitude() const;
         Vector direction() const;
 
-        // friend Vector<type, size> operator*(double scalar, const Vector<type, size>& v);
-    };
+        template <typename type, std::size_t size>
+        friend Vector<type, size> operator*(double scalar, const Vector<type, size>& v);
 
-    // template <typename type, std::size_t size>
-    // Vector<type, size> operator*(double scalar, const Vector<type, size>& v);
-    
+    };
 
     // template <typename type, std::size_t size>
     // std::ostream& operator<<(std::ostream& os, const Vector<type, size>& v);

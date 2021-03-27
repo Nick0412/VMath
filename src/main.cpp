@@ -11,10 +11,10 @@ int main()
     try 
     {
         VMath::Vector<double, 2> v5({3.0,4.0});
-        std::cout << v5.magnitude();
-        // auto new_vec = 3.0 * v5;
-        // std::cout << new_vec[0];
-        // std::cout << new_vec[1];
+        // std::cout << v5.magnitude();
+        VMath::Vector<double, 2> new_vec = 3.0 * v5;
+        std::cout << new_vec[0] << "\n";
+        std::cout << new_vec[1];
     }
     catch (std::exception ex)
     {

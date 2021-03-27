@@ -64,32 +64,15 @@ namespace VMath
         return std::sqrt(v);
     }
 
-    // template <typename type, std::size_t size>
-    // Vector<type, size> operator*(double scalar, const Vector<type, size>& v)
-    // {
-    //     auto new_vec{v};
-    //     for (auto& elem : new_vec)
-    //     {
-    //         elem *= scalar;
-    //     }
+    template <typename type, std::size_t size>
+    Vector<type, size> operator*(double scalar, const Vector<type, size>& v)
+    {
+        auto new_vec{v};
+        for (auto& elem : new_vec.m_data)
+        {
+            elem *= scalar;
+        }
 
-    //     return new_vec;
-    // }
-
-    // template <typename type, std::size_t size>
-    // Vector Vector<type, size>::direction() const
-    // {
-
-    // }
-
-    // template <typename type, std::size_t size>
-    // std::ostream& operator<<(std::ostream& os, const Vector<type, size>& v)
-    // {
-    //     for (auto elem  : v.m_data)
-    //     {
-    //         os << elem << " ";
-    //     }
-    //     os << "\n";
-    //     return os;
-    // }
+        return new_vec;
+    }
 }
