@@ -65,6 +65,20 @@ namespace VMath
     }
 
     template <typename type, std::size_t size>
+    Vector<type, size> Vector<type, size>::direction() const
+    {
+        auto m = magnitude();
+        if (m == 0.0)
+        {
+            return 0.0 * (*this);
+        }
+        else
+        {
+            return (1.0/m) * (*this);
+        }
+    }
+
+    template <typename type, std::size_t size>
     Vector<type, size> operator*(double scalar, const Vector<type, size>& v)
     {
         auto new_vec{v};
@@ -72,7 +86,29 @@ namespace VMath
         {
             elem *= scalar;
         }
-
         return new_vec;
+    }
+
+    template <typename type, std::size_t size>
+    double dotProduct(Vector<type, size> v1, Vector<type, size> v2)
+    {
+        double sum{0.0};
+        for (std::size_t i = 0; i < size; i++)
+        {
+            sum += v1[i] * v2[i];
+        }
+        return sum;
+    }
+
+    template <typename type, std::size_t size>
+    std::ostream& operator<<(std::ostream& os, const Vector<type, size>& v)
+    {
+        os << "[";
+        for (auto elem : v.m_data)
+        {
+            os << elem << ", ";
+        }
+        os << "\b\b]";
+        return os;
     }
 }
