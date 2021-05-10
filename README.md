@@ -1,3 +1,6 @@
+# Description
+This project is a high performance linear algebra and vector library.
+
 # References & Documentation
 
 ## C++ Documentation
