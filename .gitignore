@@ -1,0 +1,12 @@
+# Executables
+*.exe
+*.out
+
+# Static and dynamic libraries
+*.a
+*.lib
+*.dll
+*.so
+
+# Object files
+*.o
